@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --orange: hsl(35, 77%, 62%);
+  --red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayishblue: hsl(233, 8%, 79%);
+  --darkgrayishblue: hsl(236, 13%, 42%);
+  --verydarkblue: hsl(240, 100%, 5%);
+}
+
+*, *::after, *::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 0.938rem;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--off-white);
+  margin: 0 auto;
+  width: 80%;
+  overflow-x: hidden;
+}
+
+img{
+  max-width: 100%;
+}
+
+section {
+  margin: 20px 0;
+}
+
+header {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.menu a {
+  position: relative;
+  color: var(--darkgrayishblue);
+  font-size: 20px;
+  padding: 20px;
+  transition: 0.4s;
+}
+
+.menu a::after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 2.5px;
+  background: var(--red);
+  transform: scaleX(0);
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu nav:hover a {
+  opacity: 0.25;
+}
+.menu nav a:hover {
+  opacity: 1;
+  font-weight: 500;
+}
+
+
+.top {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+
+.box1{
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+.img {
+  grid-column: 1 / span 2;
+}
+
+.title h1{
+  font-size: 50px;
+  color: var(--verydarkblue);
+}
+
+.texto p {
+  line-height: 32px;
+  font-size: 18px;
+  color: var(--darkgrayishblue);
+  margin-bottom: 16px;
+}
+
+.texto button {
+  background-color: var(--red);
+  color: var(--off-white);
+  border: none;
+  width: 250px;
+  height: 45px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .4s;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.texto button:hover{
+  background-color: var(--verydarkblue);
+}
+
+.box2 {
+  background-color: var(--verydarkblue);
+  color: var(--off-white);
+  padding: 30px 20px 0 20px;
+}
+
+.border {
+  border-bottom: 1px solid hsl(36, 100%, 99%, 0.5);
+}
+
+.box2 h3 {
+  font-size: 40px;
+  color: var(--orange);
+}
+
+.box-news {
+  padding: 42px 0;
+}
+
+.box-news h4 {
+  font-size: 23px;
+  margin-bottom: 8px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.box-news h4:hover {
+  color: var(--orange);
+}
+
+.box-news p {
+  color: hsl(36, 100%, 99%, 0.7);
+  font-weight: 300;
+}
+
+.down-news {
+  margin: 23px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.box-down {
+  display: flex;
+  gap: 10px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.items span {
+  color: var(--grayishblue);
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.items h5 {
+  color: var(--verydarkblue);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.items h5:hover {
+  color: var(--red);
+}
+
+.items p {
+  color: var(--darkgrayishblue);
+  font-size: 16px;
+}
+
+.img-desktop {
+  display: block;
+}
+
+.menu-icon, .img-mobile {
+  display: none;
+}
+
+@media (width < 1000px) {
+  .img-mobile, .menu-icon {
+    display: block;
+  }
+
+  .img-desktop, .menu {
+    display: none;
+  }
+
+  .top {
+    flex-direction: column;
+  }
+
+  .box1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .down-news {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  body.open .menu-mobile {
+    visibility: visible;
+    width: 50%;
+  }
+}
+
+
+
+.menu-mobile {
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0%;
+  min-height: 100vh;
+  transition: 0.4s;
+  visibility: hidden;
+  background-color: var(--off-white);
+  box-shadow: 0 5px 10px #000;
+  padding: 30px;
+}
+
+.menu-mobile button {
+  background-color: transparent;
+  border: none;
+}
+
+.menu-mobile nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-mobile nav a {
+  padding: 40px 0;
+  font-size: 20px;
+  color: var(--darkgrayishblue);
+  transition: 0.4s;
+}
+
+.menu-mobile nav:hover a {
+  opacity: 0.25;
+}
+
+.menu-mobile nav a:hover {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.menu-mobile a {
+  position: relative;
+  color: var(--darkgrayishblue);
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+.menu-mobile a::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.4s;
+  width: 0;
+  height: 2.5px;
+  border-radius: 2.5px;
+  background-color: var(--red);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+}
+
+.menu-mobile a:hover::after {
+  width: 100%;
+  transform: scaleX(1);
+}
